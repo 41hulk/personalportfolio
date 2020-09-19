@@ -31,12 +31,12 @@ h1, .wrap{
 }
 
 
-img{
+.nav img{
     margin: 23px;
     max-width: 10rem;
     max-height: 10rem;
     border: 0.2rem solid rgba(255, 255, 255, 0.2);
-    border-radius: 50% !important;
+    border-radius: 100% !important;
 }
 
 
@@ -200,7 +200,7 @@ section.resume-section {
 .container .box{
     flex: 1;
     flex-direction: column;
-    border: 0.5px solid whitesmoke;
+    border: 0.5px solid #1C1C1E;
     text-align: center;
     width: 30%;
     margin: 11px;
@@ -211,6 +211,11 @@ section.resume-section {
 .box h3{
     color: #0CC5FF;
     margin-bottom: 10px;
+}
+.box img{
+    width: 100%;
+    margin-bottom: 30px;
+   
 }
 
 
