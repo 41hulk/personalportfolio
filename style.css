@@ -143,6 +143,10 @@ section.resume-section {
     padding: 33px;
     
 }
+/* .container .date{
+    display: flex;
+    justify-content: flex-end;
+} */
 .container .exp h5{
     display: flex;
     flex-direction: column;
@@ -217,6 +221,59 @@ section.resume-section {
     margin-bottom: 30px;
    
 }
+
+/* blog */
+
+/* -------- */
+
+/* Contact */
+#contact{
+    display: flex;
+    flex-flow: column wrap;
+}
+#contact p{
+    padding: 36px;
+    margin: 40px;
+    font-size: 14px;
+}
+#form{
+    margin-left: 91px;
+}
+
+input[type=text],input[type=email],textarea{
+    width: 50%;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    background: #2D3945;
+}
+::placeholder{
+    color: rgba(255, 255, 255, 0.29);
+    font-size: medium;
+    font-weight: 100;
+    
+}
+textarea{
+    height: 100px;
+    resize: none;
+}
+input[type=submit]{
+    width: 10%;
+    color: #0CC5FF;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    border: #E5E5E5 solid;
+    border-radius: 10px  ;
+}
+
+
+
+
+
+
+
+
 
 
 
