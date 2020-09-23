@@ -1,2 +1,3 @@
-# personalportfolio
-A personal portfolio and Blog website
+Personal Portfolio and Blog website
+
+https://ntare.netlify.app
