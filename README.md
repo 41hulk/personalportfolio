@@ -1,3 +1,3 @@
 Personal Portfolio and Blog website
 
-https://ntare.netlify.app/
+https://ntare.netlify.app
