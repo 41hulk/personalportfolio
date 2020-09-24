@@ -204,6 +204,7 @@ section.resume-section {
     display: flex;
     flex-direction: column;
     border: 2px solid white;
+    border-radius: 6px;
     text-align: center;
     padding-bottom: 60%;
     margin: 11px;
@@ -313,6 +314,7 @@ section.resume-section {
 input[type=text],input[type=email],textarea{
     width: 50%;
     margin-bottom: 15px;
+    padding: 8px;
     border: none;
     border-bottom: 1px solid white;
     color: white;
@@ -338,17 +340,20 @@ input[type=submit]{
 }
 .newsletter{
     display: flex;
-    width: 50%;
+    width: 40%;
     flex-direction: column;
     justify-content: flex-end;
     color: white;
-    border: 1px solid white ;
-    margin: 200px 60px;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin: 200px 150px;
+    padding: 5px;
 }
 
 .newsletter h1{
-    margin-bottom: 20;
+    margin-bottom: 20px;
     color: #0CC5FF;
+    text-decoration: underline;
 }
 .newsletter input[type=submit]{
     width: auto;
@@ -358,7 +363,6 @@ input[type=submit]{
 }
 
 
- 
 
 
 
