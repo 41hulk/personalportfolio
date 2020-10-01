@@ -6,9 +6,13 @@
         
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+            href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+  
+    <script src="js/index.js"></script>
     </head>
     <body>
     <div class="wrap">
@@ -175,27 +179,35 @@
         <section class="resume-section" id="contact">
             
                 <p>&#128075;Hello. Let's get in touch</p>
-                <form action="" id="form">
-                    <input type="text" name="name" id="" placeholder="Name" required><br>
-                    <input type="email" name="email" id="" placeholder="Email" required><br>
-                    <input type="text" name="contact" id="" placeholder="Contact" required><br>
-                    <textarea name="message" id="" cols="10" rows="10" placeholder="Leave a Message here"></textarea><br>
-                    <input type="submit" value="Submit">
+                <form action="" name="registration" class="ContactForm" id="form" >
+                    <div class="Success"></div>
+                    <input type="text" name="name" id="username" placeholder="Name" required><br>
+                    <input type="email" name="email" id="useremail" placeholder="Email" required><br>
+                    <input type="number" name="contact" id="cell" placeholder="Contact" required><br>
+                    <textarea name="message" id="" cols="10" rows="10" placeholder="Leave a Message here" required></textarea><br>
+                    <div class="invalidMsg"></div>
+
+                    <input type="submit" value="Submit" onclick="return formValidation()">
                 </form>
             <div class="newsletter">
                 <h1>Subscribe to my newsletter</h1>
                 <form action="">
-                    <input type="email" name="email" id="" placeholder="Email" required>
-                    <input type="submit" value="Submit">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <input type="submit" name="submit" value="Submit" onclick="return formValidation()">
                 </form>
 
             </div>
             
-           
+        
         </section>
     </div>  
 
-    </div>
-    </body>
+
+
+</div>
+
+
+
+</body> 
 
 </html>
