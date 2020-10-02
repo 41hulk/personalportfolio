@@ -12,7 +12,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
   
-    <script src="js/index.js"></script>
+    
     </head>
     <body>
     <div class="wrap">
@@ -179,35 +179,106 @@
         <section class="resume-section" id="contact">
             
                 <p>&#128075;Hello. Let's get in touch</p>
-                <form action="" name="registration" class="ContactForm" id="form" >
-                    <div class="Success"></div>
+                <form action="" method="POST" name="registration" class="ContactForm" id="form" >
+            
                     <input type="text" name="name" id="username" placeholder="Name" required><br>
                     <input type="email" name="email" id="useremail" placeholder="Email" required><br>
-                    <input type="number" name="contact" id="cell" placeholder="Contact" required><br>
-                    <textarea name="message" id="" cols="10" rows="10" placeholder="Leave a Message here" required></textarea><br>
+                    <input type="text" name="contact" id="cell" placeholder="Contact" required><br>
+                    <textarea name="message" id="" cols="10" rows="10" placeholder="Leave a Message here"></textarea><br>
+                    <div class="done"></div>
                     <div class="invalidMsg"></div>
 
-                    <input type="submit" value="Submit" onclick="return formValidation()">
+                    <input type="submit" value="Submit" name="submit">
                 </form>
+
+
+
             <div class="newsletter">
                 <h1>Subscribe to my newsletter</h1>
                 <form action="">
                     <input type="email" name="email" id="email" placeholder="Email" required>
-                    <input type="submit" name="submit" value="Submit" onclick="return formValidation()">
+                    <input type="submit" name="submit" value="Submit" >
                 </form>
 
             </div>
             
-        
+           
         </section>
     </div>  
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+    <script src="js/firebase.js"></script>
+    <!-- <script src="js/index.js"></script> -->
+<script>
+        const db = firebase.firestore();
+        const form = document.querySelector("form");
+
+        const uname = document.registration.name;
+        const ucontact = document.registration.contact;
+        const uemail = document.registration.email;
+        const umessage = document.registration.message;
+        const invalidMsg = document.querySelector(".invalidMsg");
 
 
+    function formValidation(){
+       
+        var isEmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var isPhone = /^[0-9]+$/;
+    
+        if (uname.value.length < 1 ){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Name `;
+            }
+    
+        if((!uemail.value.match(isEmail)) || (uemail.value.length < 1)){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Email `;
+    
+        }    
+        if((!ucontact.value.match(isPhone)) || (ucontact.value.length < 1)){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Phone Number `;
+            return false;
+        } 
+    
+        else{
+            return true;
+        }
+    }
 
-</div>
+    const contactform = document.querySelector(".ContactForm");
+    contactform.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log(db);
+        if (formValidation()){
+            db.collection("contacts").doc()
+            .set({
+                name: uname.value,
+                email: uemail.value,
+                contact: ucontact.value,
+                message: umessage.value,
+                date: Date.now(),
+            })
+            .then(
+                function(){
+                    uname.value = "";
+                    uemail.value = "";
+                    ucontact.value = "";
+                    umessage.value = "";
+                    invalidMsg.innerHTML = "";
+                    document.querySelector(".done").innerHTML = '<p class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks, Let me holla at you.</p>'
+            })
+            .catch(function(error){
+                console.log("Error in sending data", Error)
+            }
+            
+        )
+        }
 
+    })
 
-
+</script>
 </body> 
 
 </html>
