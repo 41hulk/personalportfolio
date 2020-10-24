@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+
+    <title>Create a Post</title>
+
+</head>
+<body>
+    <div class="nav">
+
+        <div class="nav-title">
+            <p>Dashboard</p>
+        </div>
+
+        <div class="profile">
+
+            <div class="logout">
+                <P>Logout</P>
+            </div>
+
+            <div class="divider"><hr></div>
+
+            <div class="name">
+                <h5>Ntare Guy</h5>
+            </div>
+
+            <div class="p-image">
+                <img src="./icon.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <section class="create-post">
+        <form class="create-blog-post">
+            <h3 class="post-title">Title of Post</h3>
+            <input type="text" name="title" placeholder="Please enter post title" />
+            <h3 class="post-title">Post image</h3>
+            <input type="file" class="fileBtn" />
+        <div class="imgPreview">
+            <img class="preview" alt="" src="" />
+        </div>
+        
+        <textarea name="body" placeholder="Body of your Post"></textarea>
+        <button class="submit create-btn" type="submit ">Create</button>
+        </form>
+    </section>
+
+
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("body");
+    </script>
+</body>
+</html>

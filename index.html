@@ -6,9 +6,13 @@
         
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+            href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+  
+    
     </head>
     <body>
     <div class="wrap">
@@ -175,27 +179,126 @@
         <section class="resume-section" id="contact">
             
                 <p>&#128075;Hello. Let's get in touch</p>
-                <form action="" id="form">
-                    <input type="text" name="name" id="" placeholder="Name"><br>
-                    <input type="email" name="email" id="" placeholder="Email"><br>
-                    <input type="text" name="contact" id="" placeholder="Contact"><br>
+                <form action="" method="POST" name="registration" class="ContactForm" id="form" >
+            
+                    <input type="text" name="name" id="username" placeholder="Name" required><br>
+                    <input type="email" name="email" id="useremail" placeholder="Email" required><br>
+                    <input type="text" name="contact" id="cell" placeholder="Contact" required><br>
                     <textarea name="message" id="" cols="10" rows="10" placeholder="Leave a Message here"></textarea><br>
-                    <input type="submit" value="Submit">
-                </form>
-            <div class="newsletter">
-                <h1>Subscribe to newsletter</h1>
-                <form action="">
-                    <input type="email" name="email" id="" placeholder="Email">
-                    <input type="submit" value="Submit">
+                    <div class="done"></div>
+                    <div class="invalidMsg"></div>
+
+                    <input type="submit" value="Submit" name="submit">
                 </form>
 
+
+
+            <div class="newsletter">
+                <h1>Subscribe to my newsletter</h1>
+                
+                <form action="" name="subscribe">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    
+                    <input type="submit" name="submit" value="Submit" >
+                </form>
+                <div class="sub"></div>
             </div>
             
            
         </section>
     </div>  
-
     </div>
-    </body>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
+    <script src="js/firebase.js"></script>
+    <!-- <script src="js/index.js"></script> -->
+<script>
+        const db = firebase.firestore();
+        const form = document.querySelector("form");
+        // contact data 
+        const uname = document.registration.name;
+        const ucontact = document.registration.contact;
+        const uemail = document.registration.email;
+        const umessage = document.registration.message;
+        const invalidMsg = document.querySelector(".invalidMsg");
+
+        const subscribe = document.subscribe.email;
+
+
+    function formValidation(){
+        var isEmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var isPhone = /^[0-9]+$/;
+    
+        if (uname.value.length < 1 ){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Name `;
+            }
+    
+        if((!uemail.value.match(isEmail)) || (uemail.value.length < 1)){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Email `;
+    
+        }    
+        if((!ucontact.value.match(isPhone)) || (ucontact.value.length < 1)){
+            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Phone Number `;
+            return false;
+        } 
+    
+        else{
+            return true;
+        }
+    }
+
+    const contactform = document.querySelector(".ContactForm");
+    contactform.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (formValidation()){
+            db.collection("contacts").doc()
+            .set({
+                name: uname.value,
+                email: uemail.value,
+                contact: ucontact.value,
+                message: umessage.value,
+                date: Date.now(),
+            })
+            .then(
+                function(){
+                    uname.value = "";
+                    uemail.value = "";
+                    ucontact.value = "";
+                    umessage.value = "";
+                    invalidMsg.innerHTML = "";
+                    document.querySelector(".done").innerHTML = '<h1 class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks, Let me holla at you.</h1>'
+            })
+            .catch(function(error){
+                console.log("Error in sending data", Error)
+            }
+        )
+        }
+
+    })
+
+    const newsletter = document.querySelector(".newsletter");
+    newsletter.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (subscribe.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+            db.collection("subscribers").doc()
+            .set({
+                email: subscribe.value,
+                date: Date.now(),
+            }).then(
+                function (){
+                    subscribe.value = "";
+                    document.querySelector(".sub").innerHTML = '<p class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks for Subscrbing to my Newsletter :)</p>'
+
+                }
+            )
+        }
+
+    })
+
+</script>
+</body> 
 
 </html>
