@@ -13,7 +13,7 @@
     <div class="nav">
 
         <div class="nav-title">
-            <p>Dashboard</p>
+            <p><a href="./dasboard.html">Dasboard</a></p>
         </div>
 
         <div class="profile">
@@ -35,11 +35,11 @@
     </div>
 
     <section class="create-post">
-        <form class="create-blog-post">
+        <form class="create-blog-post" name="create" method="POST">
             <h3 class="post-title">Title of Post</h3>
             <input type="text" name="title" placeholder="Please enter post title" />
             <h3 class="post-title">Post image</h3>
-            <input type="file" class="fileBtn" />
+            <input type="file" name="image" class="fileBtn" />
         <div class="imgPreview">
             <img class="preview" alt="" src="" />
         </div>
@@ -51,8 +51,37 @@
 
 
     <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
-    <script>
+    <script type="text/javascript">
         CKEDITOR.replace("body");
+
+        const form = document.querySelector("form");
+
+        
+        form.addEventListener('submit', async(event) => {
+            event.preventDefault();
+            console.log("clicked")
+        try {
+            const res = await fetch(
+                'https://hulkbackend.herokuapp.com/api/post/', 
+                {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify({
+                    title: form.title.value,
+                    body: CKEDITOR.instances.body.getData(),
+                }),
+
+            });
+            const post = await res.json();
+            console.log(post);
+            form.reset();
+
+        }catch(error){
+            console.log(Error);
+
+        }
+            
+        });
     </script>
 </body>
 </html>

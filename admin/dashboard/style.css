@@ -273,3 +273,15 @@ form {
     font-size: 1.2rem;
     cursor: pointer;
   }
+
+.nav-title a{
+    text-decoration: underline;
+    padding: 10px;
+    
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
+}
