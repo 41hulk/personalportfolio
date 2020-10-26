@@ -192,7 +192,10 @@ tbody tr:last-child td {
 tbody td {
     border-bottom: 1px solid #ddd;
 }
-
+td a{
+    text-decoration: none;
+    color: black
+}
 td:last-child {
     text-align: right;
     padding-right: 10px;
