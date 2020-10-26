@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Mulish;
+}
+.body{
+    
+    background-color: white;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 300px;
+    padding: 10px;
+    max-width: 100%;
+}
+
+.blog-title{
+    
+    font-weight: 700;
+    margin: 10px 20px ;
+    padding: 10px;
+    
+}
+.blog-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 20px;
+    
+    padding: 10px;
+}
+.blog-image{
+    width: 100%;
+    margin-bottom: 40px;
+
+}
+
+.blog-footer{
+    display: flex;
+    
+    justify-content: center;
+    margin: 10px 20px;
+    
+    padding: 10px;
+}

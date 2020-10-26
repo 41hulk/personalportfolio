@@ -33,6 +33,7 @@ h1, .wrap{
     background: #1C1C1E !important;
 }
 
+
 .nav img{
     margin: 23px;
     max-width: 10rem;
@@ -40,6 +41,7 @@ h1, .wrap{
     border: 0.2rem solid rgba(255, 255, 255, 0.2);
     border-radius: 100% !important;
 }
+
 
 
 .nav-list{
@@ -264,8 +266,13 @@ section.resume-section {
 }
 .row{
     display: flex;
-
 }
+
+#blog .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #blog h1{
     margin-left: 100px;
     margin-bottom: 50px;

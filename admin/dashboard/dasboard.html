@@ -80,7 +80,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>name of post</td>
+            <td> name of post</td>
             <td>
                 <button class="edit">edit</button>
                 <button class="delete">delete</button>
@@ -101,14 +101,14 @@
             'https://hulkbackend.herokuapp.com/api/post',
         );
         const data = await res.json();
-            let html = '';
-            console.log(data);
+        let html = '';
+        console.log(data);
         data.posts.forEach((post) => {
             html += ` <tr>
-                    <td>${post.title}</td>
+                    <td><a href="../readpost.html?id=${post._id}">${post.title}</a></td>
                     <td>
-                    <a href="edit.html?id=${post._id}">  <button class="edit">edit</button> </a>
-                    <button class="delete" onclick="deletePost('${post._id}')" >delete</button> 
+                    <a href="edit.html?id=${post._id}">  <button class="edit">Update</button> </a>
+                    <button class="delete" onclick="deletePost('${post._id}')" >Delete</button> 
                     </td>
                     </tr>  `;
         });
@@ -132,6 +132,7 @@
             })();
 
         }
+    
 
 
 
