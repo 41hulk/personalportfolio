@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./login.css">
+    
     <title>Login</title>
 </head>
 <body>
@@ -17,14 +18,55 @@
                 <h3>Welcome, </h3>
             </div>
             <div class="form">
-                <form action="">
-                    <input class="form-control" type="email" name="" id="" placeholder="Email" required><br>
-                    <input class="form-control" type="password" name="" id="" placeholder="Password" required><br>
+                <form method="POST" class="login_form" >
+                    <input class="form-control" type="email" name="email" id="" placeholder="Email" required><br>
+                    <input class="form-control" type="password" name="password" id="" placeholder="Password" required><br>
                     <input type="submit" value="Login">
                 </form>
                 
             </div>
         </div>
     </div>
+
+    <!-- <script src="../js/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCfYO1EgDNGyIGWczpwQCdlJObA958005k",
+            authDomain: "portfolio-6f367.firebaseapp.com",
+            databaseURL: "https://portfolio-6f367.firebaseio.com",
+            projectId: "portfolio-6f367",
+            storageBucket: "portfolio-6f367.appspot.com",
+            messagingSenderId: "845677968990",
+            appId: "1:845677968990:web:3594a6162e45cbd0a5becf",
+            measurementId: "G-F7P125NKW5"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          firebase.analytics();
+    </script>
+    <script>
+        auth = firebase.auth();
+
+        const form = document.querySelector('.login_form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            auth
+                .signInWithEmailAndPassword(form.email.value, form.password.value)
+                .catch(console.log);
+        });
+
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                location.href = "./dashboard/dasboard.html";
+            }
+        });
+
+        
+
+    </script>
 </body>
 </html>
