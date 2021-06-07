@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio</title>
-        
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text">
-            
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-  
-    
-    </head>
-    <body>
-    <div class="wrap">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
 
-    <!-- Navigation Bar -->
-        <div class="nav">
-             <!--Icon image  -->
-            <a class="profile" href="#about">
-                <img src="img/icon.jpeg" alt="profile">
-    
-            </a>
-           
-            <!-- navigation links -->
-            <!-- <ul class="nav-list">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Libre Barcode 128 Text"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- Navigation Bar -->
+      <div class="nav">
+        <!--Icon image  -->
+        <a class="profile" href="#about">
+          <img src="img/icon.jpeg" alt="profile" />
+        </a>
+
+        <!-- navigation links -->
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/41hulk">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/ntare_guy">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://dev.to/ntare_guy">dev.to</a>
+          </li>
+
+          <!-- <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-
-            </ul>
-             -->
-            
-        </div>
-    <!-- end navigation section -->    
-    <!-- Container Space -->
-    <div class="resume">
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+        </ul>
+      </div>
+      <!-- end navigation section -->
+      <!-- Container Space -->
+      <div class="resume">
         <section class="resume-section" id="about">
-            <div class="container">
-                <h1>NTARE GUY ELKANA</h1>
-                <h4>KN 02 ave · Kigali,Rwanda, CO 80810 · (250) 780-770-022 · gntare2@gmail.com</h4>
-                <p>I'm a young tech enthusiast experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Furthermore eager to learn and delivering at a fast pace.</p>
-            </div>
+          <div class="container">
+            <h1>NTARE GUY ELKANA</h1>
+            <h4>
+              KN 02 ave · Kigali,Rwanda, CO 80810 · (250) 780-770-022 ·
+              gntare2@gmail.com
+            </h4>
+            <p>
+              I'm a young tech enthusiast experienced in leveraging agile
+              frameworks to provide a robust synopsis for high level overviews.
+              Iterative approaches to corporate strategy foster collaborative
+              thinking to further the overall value proposition. Furthermore
+              eager to learn and delivering at a fast pace.
+            </p>
+          </div>
         </section>
         <!-- <section class="resume-section" id="experience">
             <div class="container">
@@ -137,7 +153,7 @@
             <div class="container">
                 <div class="row"> -->
 
-                    <!-- <div class="box" style="background-image: url(img/divvy.jpg);">
+        <!-- <div class="box" style="background-image: url(img/divvy.jpg);">
                         <a href="#" >
                             <div class="article">
                             <h3>Divvy a bikesharing company is getting a serie B funding of $20 million</h3>
@@ -197,9 +213,8 @@
                         </a>
                     </div>
                 </div> -->
-                
 
-<!--                 
+        <!--                 
             </div>
             
         </section> -->
@@ -233,111 +248,102 @@
             
            
         </section> -->
-    </div>  
+      </div>
     </div>
 
-    
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
     <script src="js/firebase.js"></script>
     <!-- <script src="js/index.js"></script> -->
-<script>
-        const db = firebase.firestore();
-        const form = document.querySelector("form");
-        // contact data 
-        const uname = document.registration.name;
-        const ucontact = document.registration.contact;
-        const uemail = document.registration.email;
-        const umessage = document.registration.message;
-        const invalidMsg = document.querySelector(".invalidMsg");
+    <script>
+      const db = firebase.firestore();
+      const form = document.querySelector('form');
+      // contact data
+      const uname = document.registration.name;
+      const ucontact = document.registration.contact;
+      const uemail = document.registration.email;
+      const umessage = document.registration.message;
+      const invalidMsg = document.querySelector('.invalidMsg');
 
-        const subscribe = document.subscribe.email;
+      const subscribe = document.subscribe.email;
 
-
-    function formValidation(){
-        var isEmail =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      function formValidation() {
+        var isEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var isPhone = /^[0-9]+$/;
-    
-        if (uname.value.length < 1 ){
-            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Name `;
-            }
-    
-        if((!uemail.value.match(isEmail)) || (uemail.value.length < 1)){
-            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Email `;
-    
-        }    
-        if((!ucontact.value.match(isPhone)) || (ucontact.value.length < 1)){
-            invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Phone Number `;
-            return false;
-        } 
-    
-        else{
-            return true;
-        }
-    }
 
-    const contactform = document.querySelector(".ContactForm");
-    contactform.addEventListener('submit', (e) => {
+        if (uname.value.length < 1) {
+          invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Name `;
+        }
+
+        if (!uemail.value.match(isEmail) || uemail.value.length < 1) {
+          invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Email `;
+        }
+        if (!ucontact.value.match(isPhone) || ucontact.value.length < 1) {
+          invalidMsg.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>Please Enter a valid Phone Number `;
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      const contactform = document.querySelector('.ContactForm');
+      contactform.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (formValidation()){
-            db.collection("contacts").doc()
+        if (formValidation()) {
+          db.collection('contacts')
+            .doc()
             .set({
-                name: uname.value,
-                email: uemail.value,
-                contact: ucontact.value,
-                message: umessage.value,
-                date: Date.now(),
+              name: uname.value,
+              email: uemail.value,
+              contact: ucontact.value,
+              message: umessage.value,
+              date: Date.now()
             })
-            .then(
-                function(){
-                    uname.value = "";
-                    uemail.value = "";
-                    ucontact.value = "";
-                    umessage.value = "";
-                    invalidMsg.innerHTML = "";
-                    document.querySelector(".done").innerHTML = '<h1 class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks, Let me holla at you.</h1>'
+            .then(function () {
+              uname.value = '';
+              uemail.value = '';
+              ucontact.value = '';
+              umessage.value = '';
+              invalidMsg.innerHTML = '';
+              document.querySelector('.done').innerHTML =
+                '<h1 class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks, Let me holla at you.</h1>';
             })
-            .catch(function(error){
-                console.log("Error in sending data", Error)
-            }
-        )
+            .catch(function (error) {
+              console.log('Error in sending data', Error);
+            });
         }
+      });
 
-    })
-
-    const newsletter = document.querySelector(".newsletter");
-    newsletter.addEventListener('submit', (e) => {
+      const newsletter = document.querySelector('.newsletter');
+      newsletter.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (subscribe.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-            db.collection("subscribers").doc()
+        if (
+          subscribe.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+        ) {
+          db.collection('subscribers')
+            .doc()
             .set({
-                email: subscribe.value,
-                date: Date.now(),
-            }).then(
-                function (){
-                    subscribe.value = "";
-                    document.querySelector(".sub").innerHTML = '<p class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks for Subscrbing to my Newsletter :)</p>'
-
-                }
-            )
+              email: subscribe.value,
+              date: Date.now()
+            })
+            .then(function () {
+              subscribe.value = '';
+              document.querySelector('.sub').innerHTML =
+                '<p class="success"><i class="fa fa-check-square-o" aria-hidden="true"></i>Thanks for Subscrbing to my Newsletter :)</p>';
+            });
         }
-
-    })
-
-</script>
-<script>
-
-    const container = document.querySelector("#blog .row");
-    (async () => {
-        const res = await fetch(
-            'https://hulkbackend.herokuapp.com/api/post',
-        );
+      });
+    </script>
+    <script>
+      const container = document.querySelector('#blog .row');
+      (async () => {
+        const res = await fetch('https://hulkbackend.herokuapp.com/api/post');
         const data = await res.json();
         let html = '';
         console.log(data);
         data.posts.forEach((post) => {
-            html += `
+          html += `
             <div class="box" style="background-image: url(img/divvy.jpg);">
                 <a href="./admin/readpost.html?id=${post._id}" >
                     <div class="article">
@@ -349,9 +355,7 @@
             </div> `;
         });
         container.innerHTML = html;
-
-        }) ();
-</script>
-</body> 
-
+      })();
+    </script>
+  </body>
 </html>
